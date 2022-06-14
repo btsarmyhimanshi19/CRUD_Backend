@@ -15,14 +15,15 @@ app.use(bodyParser.urlencoded({extended:true}))
 app.use(cors(({origin: true, credentials: true})));
 
 app.use('/',Routes)
+const host = '0.0.0.0';
+const port = process.env.PORT || 3000;
 
-
-const port =8000;
+// const port =8000;
 const username = process.env.USERNAME;
 const password =process.env.PASS;
 
 Connection(username,password);
 
 app.listen(port,()=>{
- console.log(`server started ${port}`)
+ console.log(`server started${host} : ${port} `)
 })
